@@ -1,0 +1,148 @@
+<view class="detail-page">
+  <!-- 航线基本信息 -->
+  <view class="route-header">
+    <text class="route-main-title">{{routeInfo.title}}</text>
+    <text class="route-desc">{{routeInfo.days}} | {{routeInfo.depart_date}}出发</text>
+    <view class="price-box">
+      <text class="price">¥{{routeInfo.price}}/人起</text>
+      <text class="original-price">¥{{routeInfo.original_price}}/人起</text>
+      <text class="discount-tag">限时7折</text>
+    </view>
+  </view>
+
+  <!-- 标签与亮点 -->
+  <view class="tags" wx:if="{{routeInfo.tags}}">
+    <block wx:for="{{routeInfo.tags.split(',')}}" wx:key="index">
+      <text class="tag">{{item}}</text>
+    </block>
+  </view>
+
+  <!-- 航线亮点 -->
+  <view class="highlights">
+    <text class="section-title">航线亮点</text>
+    <view class="highlight-list">
+      <view class="highlight-item">
+        <image class="highlight-icon" src="/pages/images/icon_check.png"></image>
+        <text class="highlight-text">含全程邮轮餐食（早中晚三餐+下午茶）</text>
+      </view>
+      <view class="highlight-item">
+        <image class="highlight-icon" src="/pages/images/icon_check.png"></image>
+        <text class="highlight-text">赠送岸上观光接驳巴士（无需额外付费）</text>
+      </view>
+      <view class="highlight-item">
+        <image class="highlight-icon" src="/pages/images/icon_check.png"></image>
+        <text class="highlight-text">邮轮上免费娱乐设施全开放（泳池/健身房/剧院等）</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优惠信息 -->
+  <view class="discounts">
+    <text class="discount-title">限时优惠</text>
+    <view class="discount-list">
+      <text class="discount-item">• 第三/四人船票七折</text>
+      <text class="discount-item">• 送200元船票立减券（下次可用）</text>
+      <text class="discount-item">• 送价值199元软饮套餐（含可乐/果汁无限续杯）</text>
+      <text class="discount-item">• 送200港币船上消费金（可用于免税店购物）</text>
+    </view>
+  </view>
+
+  <!-- 乘客信息选择 -->
+  <view class="passenger-select">
+    <text class="section-title">选择每舱入住人数</text>
+    <view class="passenger-type">
+      <view class="passenger-item">
+        <text>成年人（13周岁以上）</text>
+        <view class="count-control">
+          <button bindtap="decreaseAdult">-</button>
+          <text>{{adultCount}}</text>
+          <button bindtap="increaseAdult">+</button>
+        </view>
+      </view>
+      <view class="passenger-item">
+        <text>儿童（6个月-13周岁）</text>
+        <view class="count-control">
+          <button bindtap="decreaseChild">-</button>
+          <text>{{childCount}}</text>
+          <button bindtap="increaseChild">+</button>
+        </view>
+      </view>
+      <view class="passenger-note">
+        <text>注：儿童价为成人价的75%，2-6个月婴儿免费（不含餐）</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 舱房类型选择（确保标签完整闭合） -->
+<view class="cabin-select">
+  <text class="section-title">选择舱房类型</text>
+  <view class="cabin-list">
+    <!-- 内舱房 -->
+    <button class="cabin-btn {{selectedCabin === '内舱房' ? 'cabin-selected' : ''}}" bindtap="selectCabin" data-type="内舱房">
+      <text class="cabin-name">内舱房</text>
+    </button>
+    <!-- 海景房 -->
+    <button class="cabin-btn {{selectedCabin === '海景房' ? 'cabin-selected' : ''}}" bindtap="selectCabin" data-type="海景房">
+      <text class="cabin-name">海景房</text>
+    </button>
+    <!-- 阳台房 -->
+    <button class="cabin-btn {{selectedCabin === '阳台房' ? 'cabin-selected' : ''}}" bindtap="selectCabin" data-type="阳台房">
+      <text class="cabin-name">阳台房</text>
+    </button>
+    <!-- 套房 -->
+    <button class="cabin-btn {{selectedCabin === '套房' ? 'cabin-selected' : ''}}" bindtap="selectCabin" data-type="套房">
+      <text class="cabin-name">套房</text>
+    </button>
+  </view>
+  <view class="cabin-desc">
+    <text>内舱房：无窗，约18㎡ | 海景房：圆形舷窗，约20㎡ | 阳台房：独立阳台，约25㎡ | 套房：专属礼遇，约40㎡</text>
+  </view>
+</view>
+
+  <!-- 行程详情（细化每日内容） -->
+  <view class="itinerary">
+    <text class="section-title">行程详情</text>
+    <view class="itinerary-list">
+      <view class="day-item" wx:for="{{itinerary}}" wx:key="index">
+        <view class="day-header">
+          <text class="day-title">{{item.date}} 第{{index+1}}天</text>
+          <text class="day-tag" wx:if="{{item.event === '海上巡航'}}">全天邮轮活动</text>
+          <text class="day-tag" wx:if="{{item.event !== '海上巡航' && index !== 0 && index !== itinerary.length-1}}">靠港日</text>
+        </view>
+        <text class="day-content">{{item.event}}</text>
+        <view class="day-detail">
+          <text>{{item.detail}}</text>
+          <!-- 补充每日行程细节 -->
+          <view class="day-schedule" wx:if="{{item.event === '福冈'}}">
+            <text class="schedule-title">推荐行程：</text>
+            <text class="schedule-item">09:30-11:30 太宰府天满宫（世界文化遗产）</text>
+            <text class="schedule-item">12:00-13:30 博多拉面街（自费午餐）</text>
+            <text class="schedule-item">14:00-16:00 福冈塔+滨海公园</text>
+            <text class="schedule-item">16:30-18:30 天神免税店（自由购物）</text>
+          </view>
+          <view class="day-schedule" wx:if="{{item.event === '海上巡航'}}">
+            <text class="schedule-title">推荐活动：</text>
+            <text class="schedule-item">08:00-10:00 甲板瑜伽课（需预约）</text>
+            <text class="schedule-item">12:00-14:00 主厨特别套餐（需付费升级）</text>
+            <text class="schedule-item">15:00-16:30 亲子手工坊（免费）</text>
+            <text class="schedule-item">20:00-21:30 百老汇风格歌舞秀（主剧院）</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预订须知 -->
+  <view class="notice">
+    <text class="section-title">预订须知</text>
+    <view class="notice-list">
+      <text class="notice-item">1. 请携带有效期6个月以上的护照（外国游客需额外准备签证）</text>
+      <text class="notice-item">2. 登船时间为出发日14:00-18:00，开航前1小时停止登船</text>
+      <text class="notice-item">3.  cancellation policy：出发前7天以上取消，全额退款；3-6天取消，退款80%；不足3天取消，退款50%</text>
+      <text class="notice-item">4. 船上消费可使用支付宝/微信/信用卡，汇率按当日牌价结算</text>
+    </view>
+  </view>
+
+  <!-- 抢购按钮 -->
+  <button class="book-btn" bindtap="onBookRoute">立即抢购</button>
+</view>

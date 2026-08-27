@@ -1,0 +1,45 @@
+<!--pages/saleservice/saleservice.wxml-->
+<view class="service-container">
+  <!-- 标题 -->
+  <view class="page-title">客服中心</view>
+
+  <!-- 常见问题 -->
+  <view class="faq-section">
+    <view class="section-title">常见问题</view>
+    <view 
+      class="faq-item" 
+      wx:for="{{faqList}}" 
+      wx:key="index"
+      bindtap="openFaqDetail"
+      data-faq="{{item}}"
+    >
+      <text class="faq-question">{{item.question}}</text>
+      <image 
+        class="arrow" 
+        mode="widthFix"
+      ></image>
+    </view>
+  </view>
+
+  <!-- 在线客服 -->
+  <view class="contact-section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-item" bindtap="openOnlineService">
+      <image 
+        class="contact-icon" 
+        src="/pages/images/tabbar/service_online.png" 
+        mode="widthFix"
+      ></image>
+      <text class="contact-text">在线客服</text>
+    </view>
+    <view class="contact-item" bindtap="callService">
+      <image 
+        class="contact-icon" 
+        src="/pages/images/tabbar/service_phone.png" 
+        mode="widthFix"
+      ></image>
+      <text class="contact-text">客服电话</text>
+      <text class="phone-number">{{servicePhone}}</text>
+    </view>
+  </view>
+</view>
