@@ -1,0 +1,163 @@
+/* pages/onlineCheckIn/onlineCheckIn.wxss */
+.checkin-container {
+  padding: 50rpx 40rpx; /* 大幅增加页边距：左右40rpx，上下50rpx */
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+/* 导航栏 */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 108rpx; /* 导航栏再加高 */
+  padding: 0 40rpx; /* 导航栏内边距加大 */
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 40rpx; /* 与下方内容间距加大 */
+  border-radius: 16rpx 16rpx 0 0; /* 圆角加大 */
+  box-shadow: 0 3rpx 12rpx rgba(0, 0, 0, 0.05); /* 添加轻微阴影 */
+}
+.back-btn {
+  width: 56rpx; /* 返回按钮加大 */
+  height: 56rpx;
+  background-size: cover;
+}
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 40rpx; 
+  font-weight: bold;
+  color: #333;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  padding: 45rpx 35rpx;
+  background-color: #fff;
+  border-radius: 16rpx; 
+  margin-bottom: 45rpx; 
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05); 
+}
+.step {
+  width: 80rpx; 
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx; 
+  z-index: 2;
+  position: relative;
+}
+.step::after {
+  content: attr(data-step); 
+  position: absolute;
+  top: 95rpx; 
+  font-size: 28rpx; 
+  color: #666;
+  white-space: nowrap;
+}
+.step.active {
+  background-color: #007AFF;
+  color: #fff;
+}
+.line {
+  flex: 1;
+  height: 3rpx; 
+  background-color: #e5e5e5;
+  margin: 0 -25rpx; 
+  z-index: 1;
+}
+.line.active {
+  background-color: #007AFF;
+}
+
+.form-container {
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 16rpx; 
+  padding: 50rpx 40rpx; 
+  box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.form-item:last-child {
+  border-bottom: none;
+}
+.label {
+  width: 260rpx; 
+  font-size: 32rpx; 
+  color: #333;
+  padding-right: 30rpx; 
+}
+.input, .picker {
+  flex: 1;
+  font-size: 32rpx;
+  color: #666;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 25rpx; 
+  background-color: #f9f9f9;
+  border-radius: 12rpx; 
+  padding-right: 25rpx; 
+  box-shadow: inset 0 1rpx 3rpx rgba(0, 0, 0, 0.05); 
+}
+.picker {
+  color: #999;
+}
+
+.help-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40rpx 0; 
+  color: #007AFF;
+  font-size: 30rpx; 
+}
+.consult-btn {
+  color: #007AFF;
+  font-size: 30rpx;
+  padding: 15rpx 30rpx;
+  border: 2rpx solid #007AFF; 
+  border-radius: 10rpx; 
+}
+
+
+.agreement {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0; 
+  font-size: 28rpx; 
+  color: #666;
+  flex-wrap: wrap;
+}
+.checkbox {
+  transform: scale(1.2); 
+  margin-right: 25rpx;
+  margin-top: 4rpx;
+}
+
+.next-btn {
+  margin: 80rpx 0 60rpx; 
+  height: 108rpx; 
+  line-height: 108rpx;
+  background-color: #007AFF;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 54rpx;
+  width: 100%;
+  box-shadow: 0 6rpx 20rpx rgba(0, 122, 255, 0.25); 
+}
+.next-btn[disabled] {
+  background-color: #e5e5e5;
+  color: #999;
+  box-shadow: none;
+}

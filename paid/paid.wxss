@@ -1,0 +1,258 @@
+/* 基础样式 */
+.container {
+  padding: 16px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 订单列表 - 关键：增加订单间距 */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 订单之间的间距 */
+}
+
+/* 订单卡片容器 - 类似车票的卡片样式 */
+.order-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.order-card:active {
+  transform: translateY(2px);
+}
+
+/* 订单内容区 */
+.order-item {
+  padding: 18px;
+}
+
+/* 订单头部 */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #eee;
+}
+
+.route-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-status {
+  font-size: 14px;
+  color: #00b42a;
+  background-color: #f6ffed;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* 订单信息区 */
+.order-info {
+  margin-bottom: 18px;
+}
+
+.order-id {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 16px;
+  padding-left: 2px;
+}
+
+/* 航程信息 */
+.journey-info {
+  position: relative;
+}
+
+.time-date {
+  margin-bottom: 14px;
+  padding-left: 2px;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.time {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 港口信息 - 类似车票的出发到达样式 */
+.port-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.depart-port, .arrive-port {
+  flex: 1;
+}
+
+.port-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+}
+
+.port-label {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+  display: block;
+}
+
+/* 中间箭头 - 类似车票的路线样式 */
+.port-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  flex: 0 0 40px;
+}
+
+.arrow-line {
+  width: 2px;
+  height: 30px;
+  background-color: #eee;
+  margin-bottom: 4px;
+}
+
+.arrow-icon {
+  color: #008dda;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 订单操作按钮区 */
+.order-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.refund-btn {
+  flex: 1;
+  height: 44px;
+  line-height: 44px;
+  background-color: #fff;
+  color: #f53f3f;
+  border: 1px solid #f53f3f;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.refund-btn::after {
+  border: none;
+}
+
+.refund-btn:active {
+  background-color: #fff1f0;
+}
+
+.detail-btn {
+  flex: 1;
+  height: 44px;
+  line-height: 44px;
+  background-color: #008dda;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.detail-btn::after {
+  border: none;
+}
+
+.detail-btn:active {
+  background-color: #007bbd;
+}
+
+/* 加载状态 */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  color: #666;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #eee;
+  border-top-color: #008dda;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 错误信息 */
+.error {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff1f0;
+  border-radius: 8px;
+  color: #f43f30;
+  margin-bottom: 16px;
+}
+
+.error icon {
+  margin-right: 8px;
+}
+
+/* 空状态 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.empty-text {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.empty-btn {
+  width: 160px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #008dda;
+  color: #fff;
+  border-radius: 22px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.empty-btn::after {
+  border: none;
+}

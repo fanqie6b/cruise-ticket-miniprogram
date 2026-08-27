@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "已支付订单",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#008dda",
+  "enablePullDownRefresh": false,
+  "usingComponents": {}
+}

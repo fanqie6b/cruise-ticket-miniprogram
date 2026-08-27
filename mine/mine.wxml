@@ -1,0 +1,73 @@
+<view class="user-info">
+  <view wx:if="{{user.isLogin}}" class="login-info">
+    <image class="avatar" src="{{user.avatar || '/pages/images/default_avatar.png'}}" mode="widthFix"></image>
+    
+    <view class="user-text">
+      <view class="user-name">{{user.name || '游客'}}</view>
+      <view class="user-level">{{user.level || '普通会员'}}</view>
+    </view>
+    
+    <view class="logout-btn" bindtap="onLogout">
+      退出登录
+    </view>
+  </view>
+  
+  <view wx:else class="unlogin-info">
+    <image class="avatar" src="/pages/images/default_avatar.png" mode="widthFix" bindtap="goToLogin"></image>
+    
+    <view class="user-text">
+      <view class="user-name">未登录</view>
+      <view class="user-level">点击登录享受更多服务</view>
+    </view>
+    
+    <view class="login-btn" bindtap="goToLogin">
+      登录/注册
+    </view>
+  </view>
+</view>
+
+<view class="order-tabs" wx:if="{{user.isLogin}}">
+  <view 
+    class="tab-item {{currentOrderType === 'pending' ? 'active' : ''}}"
+    bindtap="navigateToOrderPage" 
+    data-type="pending"
+  >
+    待支付
+  </view>
+  <view 
+    class="tab-item {{currentOrderType === 'paid' ? 'active' : ''}}"
+    bindtap="navigateToOrderPage" 
+    data-type="paid"
+  >
+    已支付
+  </view>
+  <view 
+    class="tab-item {{currentOrderType === 'aftersale' ? 'active' : ''}}"
+    bindtap="navigateToOrderPage"   
+    data-type="aftersale"
+  >
+    退票/售后
+  </view>
+  <view 
+    class="tab-item {{currentOrderType === 'history' ? 'active' : ''}}"
+    bindtap="navigateToOrderPage"  
+    data-type="history"
+  >
+    历史订单
+  </view>
+</view>
+
+<view class="list-container">
+  <view 
+    class="list-item" 
+    wx:for="{{features}}" 
+    wx:key="id"
+    bindtap="navigateToFeature"
+    data-path="{{item.page_path}}"
+  >
+    <image class="item-icon" src="{{item.icon_url}}" mode="widthFix"></image>
+    <text class="item-text">{{item.title}}</text>
+    <text class="item-desc">{{item.subtitle}}</text>
+    <image class="arrow" src="/pages/images/arrow-right.png" mode="widthFix"></image>
+  </view>
+</view>

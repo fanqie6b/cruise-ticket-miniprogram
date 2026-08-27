@@ -1,0 +1,305 @@
+.detail-page {
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+.route-header {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.route-main-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.route-desc {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  font-size: 32rpx;
+  color: #FF5722;
+  font-weight: bold;
+  margin-right: 10rpx;
+}
+
+.original-price {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.discounts {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.discount-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 12px;
+  color: #e63946;
+}
+
+.discount-item {
+  font-size: 24rpx;
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.passenger-select, .cabin-select, .itinerary {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.passenger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.count-control {
+  display: flex;
+  align-items: center;
+}
+
+.count-control button {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0;
+  font-size: 28rpx;
+}
+
+.count-control text {
+  margin: 0 16rpx;
+  font-size: 26rpx;
+}
+
+.cabin-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cabin-btn {
+  padding: 10rpx 20rpx;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 24rpx;
+  background-color: white;
+}
+
+.cabin-selected {
+  border-color: #008dda;
+  color: #008dda;
+  background-color: #e6f4ff;
+}
+
+.itinerary-list {
+  margin-top: 12px;
+}
+
+.day-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.day-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.day-content {
+  font-size: 24rpx;
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.day-detail {
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.book-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #008dda;
+  color: white;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+/* 新增标签样式 */
+.tags {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+.tag {
+  background-color: #e6f4ff;
+  color: #008dda;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+/* 新增亮点模块样式 */
+.highlights {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.highlight-list {
+  margin-top: 15rpx;
+}
+.highlight-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+.highlight-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+.highlight-text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 价格标签 */
+.discount-tag {
+  margin-left: 15rpx;
+  background-color: #ff4d4f;
+  color: white;
+  font-size: 22rpx;
+  padding: 3rpx 10rpx;
+  border-radius: 4rpx;
+}
+
+/* 乘客备注 */
+.passenger-note {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #999;
+  padding-left: 0;
+}
+
+/* 舱房信息细化 */
+.cabin-btn {
+  flex: 1;
+  min-width: 160rpx;
+  padding: 15rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cabin-name {
+  font-size: 26rpx;
+  margin-bottom: 8rpx;
+}
+.cabin-price {
+  font-size: 24rpx;
+  color: #ff4500;
+}
+.cabin-desc {
+  margin-top: 15rpx;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 行程细节样式 */
+.day-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+.day-tag {
+  margin-left: 15rpx;
+  font-size: 22rpx;
+  padding: 3rpx 10rpx;
+  border-radius: 4rpx;
+}
+.day-tag:nth-child(2) {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+.day-tag:nth-child(3) {
+  background-color: #fff7e6;
+  color: #fa8c16;
+}
+.day-schedule {
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+  border-left: 2rpx solid #eee;
+}
+.schedule-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  color: #333;
+}
+.schedule-item {
+  display: block;
+  margin-bottom: 6rpx;
+  font-size: 22rpx;
+  color: #666;
+}
+
+/* 预订须知 */
+.notice {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 30rpx;
+}
+.notice-list {
+  margin-top: 15rpx;
+}
+.notice-item {
+  display: block;
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}

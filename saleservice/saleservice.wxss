@@ -1,0 +1,78 @@
+/* pages/saleservice/saleservice.wxss */
+.service-container {
+  padding: 16px;
+  background-color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 标题 */
+.page-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+/* 常见问题 */
+.faq-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.faq-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.faq-question {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+/* 联系我们 */
+.contact-section {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.contact-text {
+  font-size: 14px;
+  color: #333;
+  margin-right: 8px;
+}
+
+.phone-number {
+  font-size: 14px;
+  color: #ff6700;
+}

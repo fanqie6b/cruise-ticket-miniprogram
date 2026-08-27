@@ -1,0 +1,66 @@
+<view class="info-container">
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goBack">←</view>
+    <view class="title">乘客信息</view>
+  </view>
+
+  <view class="progress-bar">
+    <view class="step active" data-step="1. 信息验证">1</view>
+    <view class="line active"></view>
+    <view class="step active" data-step="2. 乘客详情">2</view>
+    <view class="line"></view>
+    <view class="step" data-step="3. 完成值船">3</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">基本信息</view>
+    <view class="info-item">
+      <text class="label">邮轮名称：</text>
+      <text class="value">{{passengerInfo.cruiseName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">出航日期：</text>
+      <text class="value">{{passengerInfo.sailingDate}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">订单号：</text>
+      <text class="value">{{passengerInfo.orderNo}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">乘客姓名：</text>
+      <text class="value">{{passengerInfo.passengerName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">出生日期：</text>
+      <text class="value">{{passengerInfo.birthDate}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">国籍：</text>
+      <text class="value">{{passengerInfo.nationality}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">航线信息</view>
+    <view class="route-item">
+      <view class="port">
+        <text class="port-name">{{passengerInfo.departurePort}}</text>
+        <text class="time">{{passengerInfo.departureTime}}</text>
+      </view>
+      <view class="arrow">
+        <text>→</text> 
+      </view>
+      <view class="port">
+        <text class="port-name">{{passengerInfo.arrivalPort}}</text>
+        <text class="time">{{passengerInfo.arrivalTime}}</text>
+      </view>
+    </view>
+    <view class="route-days">
+      <text>{{passengerInfo.days}}天{{passengerInfo.days - 1}}晚</text>
+    </view>
+  </view>
+
+  <button class="next-btn" bindtap="goToComplete">
+    确认并继续
+  </button>
+</view>
