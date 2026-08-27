@@ -1,0 +1,53 @@
+.activity-container {
+  background-color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.sub-tab {
+  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.sub-tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  padding: 8px 0;
+  margin: 0 4px;
+  border: 1px solid #f5f5f5;
+  border-radius: 20px;
+}
+.sub-tab-item.active {
+  background-color: #007aff;
+  color: #fff;
+  border: 1px solid #007aff;
+}
+.content {
+  padding: 16px;
+}
+.activity-card {
+  margin-bottom: 24px;
+}
+.activity-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.activity-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+.activity-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+.activity-detail {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}

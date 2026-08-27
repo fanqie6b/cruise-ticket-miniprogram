@@ -1,0 +1,44 @@
+.activity-detail-page {
+  background-color: white;
+  min-height: 100vh;
+}
+.activity-img {
+  width: 100%;
+  height: auto;
+}
+.activity-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.activity-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+}
+.tag {
+  color: #666;
+  font-size: 28rpx;
+}
+.price {
+  color: #FF6600;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.activity-content {
+  padding: 20rpx;
+}
+.content-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+  color: #333;
+}
+.description {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #666;
+}

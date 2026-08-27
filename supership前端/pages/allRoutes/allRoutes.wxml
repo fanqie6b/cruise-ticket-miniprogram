@@ -1,0 +1,113 @@
+<view class="container">
+  <!-- 清除筛选按钮容器 -->
+  <view class="clear-filter-container">
+    <!-- 清除筛选按钮，点击触发clearAllFilters方法 -->
+    <button class="clear-filter-btn" bindtap="clearAllFilters">
+      清除筛选
+    </button>
+  </view>
+
+  <!-- 筛选条件展示栏 -->
+  <view class="filter-bar">
+    <!-- 出发日期筛选项 -->
+    <view class="filter-item">
+      <text class="filter-label">出发日期：</text>
+      <!-- 显示选中的日期，若未筛选则显示'全部' -->
+      <text class="filter-value">{{filterParams.date || '全部'}}</text>
+    </view>
+
+    <!-- 乘坐邮轮筛选项 -->
+    <view class="filter-item">
+      <text class="filter-label">乘坐邮轮：</text>
+      <!-- 显示选中的邮轮，若未筛选则显示'全部' -->
+      <text class="filter-value">{{filterParams.cruise || '全部'}}</text>
+    </view>
+
+    <!-- 出发港口筛选项 -->
+    <view class="filter-item">
+      <text class="filter-label">出发港口：</text>
+      <!-- 显示选中的出发港口，若未筛选则显示'全部' -->
+      <text class="filter-value">{{filterParams.port || '全部'}}</text>
+    </view>
+
+    <!-- 目的地区域筛选项 -->
+    <view class="filter-item">
+      <text class="filter-label">目的地区域：</text>
+      <!-- 显示选中的目的地区域，若未筛选则显示'全部' -->
+      <text class="filter-value">{{filterParams.dest || '全部'}}</text>
+    </view>
+  </view>
+
+  <!-- 排序栏 -->
+  <view class="sort-bar">
+    <!-- 价格排序项，点击触发sortRoutes方法，传递排序类型参数 -->
+    <!-- 当排序类型为'price'时添加active类（高亮显示） -->
+    <view class="sort-item {{sortType === 'price' ? 'active' : ''}}" bindtap="sortRoutes" data-type="priceAsc">
+      <text>价格</text>
+      <!-- 根据排序类型和排序方向（升序/降序）显示对应的箭头图标 -->
+      <image src="/pages/images/{{sortType === 'price' && sortAsc ? 'arrow-up' : 'arrow-down'}}.png" mode="aspectFit" class="sort-icon"></image>
+    </view>
+
+    <!-- 出发日期排序项，点击触发sortRoutes方法，传递排序类型参数 -->
+    <!-- 当排序类型为'date'时添加active类（高亮显示） -->
+    <view class="sort-item {{sortType === 'date' ? 'active' : ''}}" bindtap="sortRoutes" data-type="date">
+      <text>出发日期</text>
+      <!-- 根据排序类型和排序方向（升序/降序）显示对应的箭头图标 -->
+      <image src="/pages/images/{{sortType === 'date' && sortAsc ? 'arrow-up' : 'arrow-down'}}.png" mode="aspectFit" class="sort-icon"></image>
+    </view>
+  </view>
+
+  <!-- 航线列表容器 -->
+  <view class="route-list">
+    <!-- 循环渲染筛选后的航线列表，使用id作为唯一标识 -->
+    <block wx:for="{{filteredRoutes}}" wx:key="id">
+      <!-- 单个航线卡片，点击触发goToBookRoute方法，传递航线id -->
+      <view class="route-card" bindtap="goToBookRoute" data-id="{{item.id}}">
+        <!-- 航线封面图，若没有图片则使用默认图 -->
+        <image src="{{item.imageUrl || '/images/default-route.png'}}" mode="aspectFill" class="route-cover"></image>
+        
+        <!-- 航线信息容器 -->
+        <view class="route-info">
+          <!-- 航线标题（邮轮名称） -->
+          <view class="route-title">
+            <text class="ship-name">{{item.title}}</text>
+          </view>
+          
+          <!-- 航线副标题 -->
+          <view class="route-subtitle">{{item.subtitle}}</view>
+          
+          <!-- 出发港口信息 -->
+          <view class="route-path">
+            <text class="path-text">出发港口: {{item.port}}</text>
+          </view>
+          
+          <!-- 出发日期信息 -->
+          <view class="route-dates">
+            <text class="date-text">出发日期: {{item.date}}</text>
+          </view>
+          
+          <!-- 航线价格信息 -->
+          <view class="route-price">
+            <text class="price-value">{{item.price}}</text>
+          </view>
+          
+          <!-- 航线标签列表，循环渲染标签 -->
+          <view class="tags">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="index">{{item}}</text>
+          </view>
+          
+          <!-- 立即订购按钮，点击触发onBuyNow方法，传递航线id -->
+          <button class="book-button" bindtap="onBuyNow" data-route-id="{{item.id}}">立即订购</button>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <!-- 空状态显示（当筛选后无符合条件的航线时显示） -->
+  <view class="empty-state" wx:if="{{filteredRoutes.length === 0}}">
+    <image src="/pages/images/empty.png" mode="aspectFit" class="empty-image"></image>
+    <text class="empty-text">暂无符合条件的航线</text>
+    <!-- 重新选择按钮，点击触发清除筛选方法 -->
+    <button class="reset-btn" bindtap="clearAllFilters">重新选择</button>
+  </view>
+</view>

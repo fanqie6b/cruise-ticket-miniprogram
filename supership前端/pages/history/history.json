@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "历史订单",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#008dda",
+  "enablePullDownRefresh": false,
+  "usingComponents": {}
+}
