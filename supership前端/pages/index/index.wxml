@@ -1,0 +1,171 @@
+<view class="index-page">
+  <swiper class="banner-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500">
+    <block wx:for="{{bannerList}}" wx:key="id">
+      <swiper-item bindtap="onSwiperItemClick" data-ship-id="{{item.id}}">
+        <view class="banner-item">
+          <image class="banner-img" src="{{item.imageUrl}}" mode="widthFix"></image>
+          <view class="banner-text">
+            <text class="banner-title">{{item.name}}</text>
+            <text class="banner-subtitle">{{item.subtitle}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="container">
+    <view class="navbar">
+      <text class="title">邮轮旅行</text>
+    </view>
+    <view class="quick-entry">
+      <view class="entry-item" bindtap="showDateModal">
+        <text class="entry-icon">📅</text>
+        <text class="entry-text">出发日期</text>
+        <text class="selected-value">{{selectedDate || '请选择'}}</text>
+      </view>
+      <view class="entry-item" bindtap="showCruiseModal">
+        <text class="entry-icon">🚢</text>
+        <text class="entry-text">乘坐邮轮</text>
+        <text class="selected-value">{{selectedCruise || '请选择'}}</text>
+      </view>
+      <view class="entry-item" bindtap="showPortModal">
+        <text class="entry-icon">🌊</text>
+        <text class="entry-text">出发港口</text>
+        <text class="selected-value">{{selectedPort || '请选择'}}</text>
+      </view>
+      <view class="entry-item" bindtap="showDestinationModal">
+        <text class="entry-icon">📍</text>
+        <text class="entry-text">目的地</text>
+        <text class="selected-value">{{selectedDestination || '请选择'}}</text>
+      </view>
+      <button class="book-btn" bindtap="goToAllRoutes">立即预订</button>
+    </view>
+
+<view class="hot-activity">
+  <text class="section-title">热门活动</text>
+  <view class="activity-list">
+    <view class="activity-item" bindtap="onHotActivityClick" data-id="1">
+      <image class="activity-img" src="/pages/images/activity1.png"></image>
+      <text class="activity-desc">带爸妈出海，畅享夏日</text>
+      <text class="activity-tag">9天8晚 深度游东南亚</text>
+      <text class="activity-price">船票3折</text>
+    </view>
+
+    <view class="activity-item" bindtap="onHotActivityClick" data-id="2">
+      <image class="activity-img" src="/pages/images/activity2.png"></image>
+      <text class="activity-desc">亲子主题 火热招募</text>
+      <text class="activity-tag">低至¥999/人</text>
+      <text class="activity-price">船票88折</text>
+    </view>
+  </view>
+</view>
+
+    <view class="modal-mask" wx:if="{{showDateModal}}" bindtap="hideAllModals">
+      <view class="modal-container" bindtap="stopPropagation">
+        <view class="modal-title">选择出发日期</view>
+        <picker-view 
+          class="picker-view"
+          value="{{dateValue}}"
+          indicator-style="height: 50rpx;"
+          style="width: 100%; height: 400rpx;"
+          bindchange="onDateChange"
+        >
+          <picker-view-column>
+            <view wx:for="{{dateList}}" wx:key="index" class="picker-item">{{item}}</view>
+          </picker-view-column>
+        </picker-view>
+        <view class="modal-btns">
+          <button class="modal-btn cancel" bindtap="hideAllModals">取消</button>
+          <button class="modal-btn confirm" bindtap="confirmDate">确认</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="modal-mask" wx:if="{{showCruiseModal}}" bindtap="hideAllModals">
+      <view class="modal-container" bindtap="stopPropagation">
+        <view class="modal-title">选择邮轮</view>
+        <view class="list-container">
+          <view 
+            class="list-item" 
+            wx:for="{{cruiseList}}" 
+            wx:key="index"
+            data-name="{{item.name}}"
+            bindtap="selectCruise"
+          >
+            {{item.name}}
+          </view>
+        </view>
+        <view class="modal-btns">
+          <button class="modal-btn cancel" bindtap="hideAllModals">取消</button>
+          <button class="modal-btn confirm" bindtap="confirmCruise">确认</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="modal-mask" wx:if="{{showPortModal}}" bindtap="hideAllModals">
+      <view class="modal-container" bindtap="stopPropagation">
+        <view class="modal-title">选择出发港口</view>
+        <view class="list-container">
+          <view 
+            class="list-item" 
+            wx:for="{{portList}}" 
+            wx:key="index"
+            data-port="{{item}}"
+            bindtap="selectPort"
+          >
+            {{item}}
+          </view>
+        </view>
+        <view class="modal-btns">
+          <button class="modal-btn cancel" bindtap="hideAllModals">取消</button>
+          <button class="modal-btn confirm" bindtap="confirmPort">确认</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="modal-mask" wx:if="{{showDestinationModal}}" bindtap="hideAllModals">
+      <view class="modal-container" bindtap="stopPropagation">
+        <view class="modal-title">选择目的地</view>
+        <view class="list-container">
+          <view 
+            class="list-item" 
+            wx:for="{{destinationList}}" 
+            wx:key="index"
+            data-dest="{{item.name}}"
+            bindtap="selectDestination"
+          >
+            {{item.name}}
+          </view>
+        </view>
+        <view class="modal-btns">
+          <button class="modal-btn cancel" bindtap="hideAllModals">取消</button>
+          <button class="modal-btn confirm" bindtap="confirmDestination">确认</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="cruise-experience">
+  <text class="section-title">邮轮体验</text>
+  <scroll-view class="cruise-scroll" scroll-x="{{true}}" style="white-space: nowrap;">
+    <block wx:for="{{cruiseList}}" wx:key="index">
+      <view class="cruise-item" style="display: inline-block;" bindtap="onCruiseExperienceClick" data-cruise-id="{{item.id}}">
+        <image class="cruise-img" src="{{item.imageUrl}}" mode="widthFix"></image>
+        <text class="cruise-name">{{item.name}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+    <view class="hot-destinations">
+  <text class="section-title">热门目的地</text>
+  <scroll-view class="dest-scroll" scroll-x="{{true}}" style="white-space: nowrap;">
+    <block wx:for="{{destinationList}}" wx:key="index">
+      <view class="dest-item" style="display: inline-block;" bindtap="onDestinationClick" data-destination-name="{{item.name}}">
+        <image class="dest-img" src="{{item.imageUrl}}" mode="widthFix"></image>
+        <text class="dest-name">{{item.name}}</text>
+      </view>
+    </block>
+  </scroll-view>
+    </view>
+  </view>
+</view>

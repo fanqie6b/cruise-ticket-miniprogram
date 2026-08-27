@@ -1,0 +1,67 @@
+<view class="checkin-container">
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goBack"></view>
+    <view class="title">在线值船</view>
+  </view>
+  
+  <view class="progress-bar">
+    <view class="step active" data-step="1. 信息验证">1</view>
+    <view class="line active"></view>
+    <view class="step" data-step="2. 乘客详情">2</view>
+    <view class="line"></view>
+    <view class="step" data-step="3. 完成值船">3</view>
+  </view>
+
+  <view class="form-container">
+    <view class="form-item">
+      <picker bindchange="handleCruiseChange" value="{{cruiseIndex}}" range="{{cruiseList}}">
+        <view class="picker">
+          {{cruiseList[cruiseIndex] || '请选择邮轮'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <picker mode="date" bindchange="handleDateChange" value="{{sailingDate}}" start="{{minDate}}" end="{{maxDate}}">
+        <view class="picker">
+          {{sailingDate || '请选择日期'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <input bindinput="handleOrderNoChange" placeholder="请输入订单号" value="{{orderNo}}"/>
+    </view>
+    
+    <view class="form-item">
+      <input bindinput="handleLastNameChange" placeholder="请输入姓氏拼音（大写）" value="{{lastNamePinyin}}"/>
+    </view>
+    
+
+    <view class="form-item">
+      <picker mode="date" bindchange="handleBirthChange" value="{{birthDate}}" end="{{maxBirthDate}}">
+        <view class="picker">
+          {{birthDate || '请选择日期'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="help-tip">
+      <text>需要帮助？</text>
+      <view class="consult-btn" bindtap="showConsult">联系客服</view>
+    </view>
+    
+    <view class="agreement">
+      <checkbox-group bindchange="handleAgreeChange">
+        <label>
+          <checkbox value="agree" checked="{{agreeTerms}}"/> 我已阅读并同意<navigator url="/pages/terms/terms">《乘客须知》</navigator>及<navigator url="/pages/privacy/privacy">《隐私政策》</navigator>
+        </label>
+      </checkbox-group>
+    </view>
+    
+    <button class="next-btn" bindtap="submitCheckIn" 
+      disabled="{{!agreeTerms || !orderNo || !lastNamePinyin || !sailingDate || cruiseIndex === -1 || !birthDate}}">
+      下一步
+    </button>
+  </view>
+</view>

@@ -1,0 +1,92 @@
+/* pages/insurance/insurance.wxss */
+.insurance-container {
+  padding: 16px;
+  background-color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 标题区 */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 保险卡片 */
+.insurance-card {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.plan-info {
+  flex: 1;
+}
+
+.plan-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.plan-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 14px;
+  color: #ff6700;
+  font-weight: bold;
+}
+
+.buy-btn {
+  background-color: #008dda;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* 升级方案差异化 */
+.upgrade {
+  background: #fff9e6;
+  border: 1px dashed #ffd666;
+}
+
+/* 投保须知 */
+.notice-section {
+  margin-top: 24px;
+}
+
+.notice-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.notice-item {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}

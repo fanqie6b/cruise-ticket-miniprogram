@@ -1,0 +1,68 @@
+<view class="container">
+  <view wx:if="{{isLoading}}" class="loading">
+    <view class="spinner"></view>
+    <text>加载中...</text>
+  </view>
+  
+  <view wx:if="{{errorMsg}}" class="error">
+    <icon type="warn" size="20" color="#f43f30" />
+    <text>{{errorMsg}}</text>
+  </view>
+  
+  <!-- 订单列表容器 -->
+  <view wx:else class="order-list">
+    <!-- 订单卡片 -->
+    <view class="order-card" wx:for="{{orderList}}" wx:key="id">
+      <view class="order-item" bindtap="goToOrderDetail" data-order-id="{{item.id}}">
+        <!-- 订单头部信息 -->
+        <view class="order-header">
+          <text class="route-name">{{item.route_name || '未知航线'}}</text>
+          <text class="order-status">已支付</text>
+        </view>
+        
+        <!-- 订单基本信息 -->
+        <view class="order-info">
+          <view class="order-id">订单编号: {{item.id}}</view>
+          
+          <!-- 航程信息 -->
+          <view class="journey-info">
+            <view class="time-date">
+              <text class="date">{{item.depart_date || '未知日期'}}</text>
+              <text class="time">{{item.depart_time || '未知时间'}}</text>
+            </view>
+            
+            <!-- 港口信息 -->
+            <view class="port-info">
+              <view class="depart-port">
+                <text class="port-name">{{item.departure_port || '未知港口'}}</text>
+                <text class="port-label">出发</text>
+              </view>
+              
+              <view class="port-arrow">
+                <view class="arrow-line"></view>
+                <view class="arrow-icon">→</view>
+              </view>
+              
+              <view class="arrive-port">
+                <text class="port-name">{{item.arrival_port || '未知港口'}}</text>
+                <text class="port-label">到达</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 操作按钮 -->
+        <view class="order-actions">
+          <button class="refund-btn" bindtap="refundOrder" data-order-id="{{item.id}}">申请退票</button>
+          <button class="detail-btn" bindtap="goToOrderDetail" data-order-id="{{item.id}}">查看详情</button>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view wx:if="{{orderList.length === 0}}" class="empty">
+      <text class="empty-text">暂无已支付订单</text>
+      <button class="empty-btn" bindtap="goToHome">去购票</button>
+    </view>
+  </view>
+</view>
