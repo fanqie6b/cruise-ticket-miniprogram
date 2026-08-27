@@ -1,0 +1,13 @@
+<view class="cruise-activity-page">
+  <view class="section-title">邮轮活动列表</view>
+  <view class="activity-list">
+    <block wx:for="{{activities}}" wx:key="id">
+      <view class="activity-item">
+        <image class="activity-img" src="{{item.activity_image}}" mode="widthFix"></image>
+      
+        <text class="activity-name">{{item.activity_name}}</text>
+        <text class="activity-description">{{item.activity_description}}</text>
+      </view>
+    </block>
+  </view>
+</view>

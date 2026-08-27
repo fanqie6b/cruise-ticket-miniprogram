@@ -1,0 +1,24 @@
+<view class="page-container">
+  <view class="header">
+    <text class="title">{{destinationName}}景点</text>
+  </view>
+  
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+  
+  <view wx:else class="attractions-list">
+    <block wx:for="{{attractions}}" wx:key="id">
+      <view class="attraction-item">
+        <image class="attraction-img" src="{{item.attraction_image}}"></image>
+        <text class="attraction-name">{{item.attraction_name}}</text>
+        <text class="attraction-description">{{item.attraction_description}}</text>
+        <text class="guide">{{item.guide}}</text>
+      </view>
+    </block>
+    
+    <view wx:if="{{attractions.length === 0}}" class="empty">
+      <text>暂无景点数据</text>
+    </view>
+  </view>
+</view>
